@@ -7,7 +7,7 @@ exports.cronJob = () => {
      * executes inactive files cleanup job every 30 minutes 
      */
     cron.schedule('*/30 * * * *', async () => {
-        cfg.logger.info('Performing inactive files cleanup...');
+        console.info('Performing inactive files cleanup...');
 
         try {
             const files = await cronService.fetchInactiveFiles();
