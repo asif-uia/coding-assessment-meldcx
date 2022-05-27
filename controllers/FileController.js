@@ -73,7 +73,7 @@ class FileController {
                         mime_type: data.mime_type,
                         private_key: data.private_key,
                         public_key: data.public_key,
-                        processed_time: moment().format()
+                        uploaded_at: moment().format()
                     }
 
                     await this._dbService.update(data.private_key, fileInfo);
