@@ -41,5 +41,5 @@ jspm_packages/
 # config file
 bin/www-*
 
-# example files for demonstration
-example/*-testfile
+# test files for demonstration
+uploads/*-testfile
