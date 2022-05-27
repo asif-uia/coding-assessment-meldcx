@@ -13,7 +13,6 @@ class DbService {
             const data = await fileHandler.readFile(this._db);
             return JSON.parse(data);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -24,7 +23,6 @@ class DbService {
             data.push(info);
             await fileHandler.writeFile(this._db, JSON.stringify(data));
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -55,7 +53,6 @@ class DbService {
             }
 
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -66,7 +63,6 @@ class DbService {
             await this.delete(data.private_key);
             await this.write(info);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -86,7 +82,6 @@ class DbService {
                 throw new Error('No data in database');
             }
         } catch (error) {
-            console.error(error); DB_NAME
             throw error;
         }
     }

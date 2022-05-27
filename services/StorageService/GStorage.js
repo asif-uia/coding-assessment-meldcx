@@ -41,7 +41,6 @@ class GStorage {
         try {
             await uploadFileToGCStorage(file);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -58,7 +57,6 @@ class GStorage {
         try {
             await storage.bucket(process.env.GCS_BUCKET).file(fileName).delete();
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }

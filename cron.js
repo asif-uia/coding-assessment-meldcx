@@ -13,9 +13,7 @@ exports.cronJob = () => {
         try {
             const files = await cronService.fetchInactiveFiles();
             await cronService.cleanUpInactiveFiles(files);
-        } catch (error) {
-            console.error(error);
-        }
+        } catch (error) { }
 
     });
 }

@@ -14,7 +14,6 @@ class LocalStorage {
             // console.log("location: ", this._bucket)
             await fileHandler.writeFile(`${this._bucket}/${file.newfilename}`, file.buffer);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -23,7 +22,6 @@ class LocalStorage {
         try {
             return fs.createReadStream(`${this._bucket}/${fileName}`);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
@@ -32,7 +30,6 @@ class LocalStorage {
         try {
             await fileHandler.unlink(`${this._bucket}/${fileName}`);
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
