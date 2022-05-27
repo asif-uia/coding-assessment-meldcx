@@ -23,7 +23,7 @@ class CronService {
                     await this._fileManager.delete(file_name)
                     await this._dbService.delete(private_key)
                 });
-                cfg.logger.info('Total removed files: ' + inactiveFiles.length)
+                console.info('Total removed files: ' + inactiveFiles.length)
             }
 
         } catch (error) {
