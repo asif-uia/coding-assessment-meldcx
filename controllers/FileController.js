@@ -2,17 +2,22 @@ const moment = require('moment');
 const { generateUniqueName } = require('../lib/utils.js');
 
 class FileController {
-
     constructor(fileManager, dbService, cryptoService) {
         this._fileManager = fileManager;
         this._dbService = dbService;
         this._cryptoService = cryptoService;
     }
 
+    /**
+     * 
+     * function that handles file upload operations
+     * @param {Object} req 
+     * @param {Object} res 
+     * @returns {Object}
+     */
     upload = async (req, res) => {
         try {
             const file = req.file;
-            // console.log("req.file: ", file)
             const newFileName = generateUniqueName(file.originalname);
             file.newfilename = newFileName;
 
@@ -42,6 +47,13 @@ class FileController {
         }
     }
 
+    /**
+     * 
+     * function that handles file read operations
+     * @param {Object} req 
+     * @param {Object} res 
+     * @returns {Object}
+     */
     read = async (req, res) => {
         try {
             const { publicKey } = req.params;
@@ -85,6 +97,12 @@ class FileController {
 
     }
 
+    /**
+     * function that handles file delete operation
+     * @param {Object} req 
+     * @param {Object} res 
+     * @returns {Object}
+     */
     delete = async (req, res) => {
 
         try {

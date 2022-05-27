@@ -1,3 +1,4 @@
+/* module dependencies */
 const TYPES = require('../ioc/types.js');
 const Container = require('../ioc');
 

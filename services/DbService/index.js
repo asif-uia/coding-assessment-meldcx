@@ -1,6 +1,8 @@
+/* module dependencies */
 const fs = require('fs');
 const cfg = require('../../config')
 
+// utilize fs promises for r/w operations on files
 const fileHandler = fs.promises;
 
 class DbService {
@@ -8,15 +10,23 @@ class DbService {
         this._db = `${cfg.db.host}/${cfg.db.dbName}`;
     }
 
+    /**
+     * read the database and returns a JSON object
+     * @returns {Object}
+     */
     read = async () => {
         try {
-            const data = await fileHandler.readFile(this._db);
-            return JSON.parse(data);
+            const data = await fileHandler.readFile(this._db, 'utf-8');
+            return JSON.parse(data.toString());
         } catch (error) {
             throw error;
         }
     }
 
+    /**
+     * performs write operations on the database
+     * @param {Object} info 
+     */
     write = async (info) => {
         try {
             const data = await this.read() || [];
@@ -27,6 +37,11 @@ class DbService {
         }
     }
 
+    /**
+     * queries the JSON database to find specified JSON object
+     * @param {string} key 
+     * @returns {Object}
+     */
     find = async (key) => {
         try {
             const data = await this.read();
@@ -57,6 +72,12 @@ class DbService {
         }
     }
 
+    /**
+     * 
+     * performs rewrite of JSON objects on the database
+     * @param {string} key 
+     * @param {Object} info 
+     */
     update = async (key, info) => {
         try {
             const { data } = await this.find(key);
@@ -67,6 +88,11 @@ class DbService {
         }
     }
 
+    /**
+     * 
+     * deletes specified JSON object from the database
+     * @param {string} privateKey
+     */
     delete = async (privateKey) => {
         try {
             const data = await this.read();

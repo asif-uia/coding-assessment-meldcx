@@ -1,3 +1,4 @@
+/* module dependencies */
 const moment = require('moment');
 const cfg = require('../../config')
 require('dotenv').config()
@@ -8,7 +9,11 @@ class CronService {
         this._fileManager = fileManager;
     }
 
-    // function to clean up inactive files
+    /**
+     * 
+     * function to clean up inactive files
+     * @param {Array} inactiveFiles 
+     */
     cleanUpInactiveFiles = async (inactiveFiles) => {
         try {
             if (inactiveFiles.length) {
@@ -26,7 +31,10 @@ class CronService {
         }
     }
 
-    // check for inactive files and returns a list of files
+    /**
+     * check for inactive files and returns an array of file elements
+     * @returns {Array}
+     */
     fetchInactiveFiles = async () => {
         try {
             const data = await this._dbService.read();

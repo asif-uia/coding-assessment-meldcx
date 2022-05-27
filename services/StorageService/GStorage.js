@@ -18,9 +18,12 @@ class GStorage {
         this._bucket_url = `https://storage.googleapis.com/${process.env.GCS_BUCKET}`;
     }
 
+    /**
+     * function to handle upload operation to GCP Bucket
+     * @param {Object} file 
+     */
     async upload(file) {
-
-        const uploadFileToGCStorage = (file) => {
+        const uploadToGCPBucket = (file) => {
             return new Promise((resolve, reject) => {
                 const { newfilename } = file;
                 const blob = this._bucket.file(newfilename);
@@ -39,12 +42,16 @@ class GStorage {
         }
 
         try {
-            await uploadFileToGCStorage(file);
+            await uploadToGCPBucket(file);
         } catch (error) {
             throw error;
         }
     }
 
+    /**
+     * function that reads file from GCP Bucket
+     * @param {string} fileName 
+     */
     read(fileName) {
         try {
             return got.stream(`${this._bucket_url}/${fileName}`);
@@ -53,6 +60,10 @@ class GStorage {
         }
     }
 
+    /**
+     * function that removes file from GCP Bucket
+     * @param {string} fileName 
+     */
     async delete(fileName) {
         try {
             await storage.bucket(process.env.GCS_BUCKET).file(fileName).delete();

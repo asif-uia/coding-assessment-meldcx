@@ -3,10 +3,9 @@ const cfg = require('./config');
 const { cronService } = require('./services/index.js');
 
 exports.cronJob = () => {
-    /** 
-      * execute cronjob every 30 minutes 
-      * fetch inactive files and cleanup 
-    */
+    /**
+     * executes inactive files cleanup job every 30 minutes 
+     */
     cron.schedule('*/30 * * * *', async () => {
         cfg.logger.info('Performing inactive files cleanup...');
 
