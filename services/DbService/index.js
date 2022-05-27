@@ -12,7 +12,7 @@ class DbService {
 
     /**
      * read the database and returns a JSON object
-     * @returns {Object}
+     * @returns {Array}
      */
     read = async () => {
         try {
