@@ -8,12 +8,14 @@ const fileRouter = require('./routes/fileRouter.js');
 // create express app instance
 const app = express();
 
-// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// api usage limiting middlewares
 app.use(rateLimiter)
 
+// routes
 app.use('/', fileRouter);
 
 
