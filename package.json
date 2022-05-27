@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "jest --verbose ./tests",
+    "test:unit": "jest --verbose ./unit/*.spec.js",
     "devStart": "nodemon ./bin/www",
     "test-dev": "jest --verbose --detectOpenHandles ./tests"
   },
