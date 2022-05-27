@@ -12,7 +12,8 @@ const host = process.env.HOST || "localhost"
 
 app.set("port", port)
 
-// cronJob()
+/* schedule a cronjob to cleanup inactive files every 30 minutes */
+cronJob()
 
 /* Create an HTTP server. */
 const server = http.createServer(app)
