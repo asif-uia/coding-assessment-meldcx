@@ -1,10 +1,10 @@
 /* module dependencies */
-const app = require('../../app')
+const app = require('../app')
 const supertest = require('supertest')
 const { log } = require('console')
 const async = require('async')
-const cfg = require('../../config')
-const resDet = require('../../lib/result.details')
+const cfg = require('../config')
+const resDet = require('../lib/result.details')
 
 const request = supertest(app)
 
