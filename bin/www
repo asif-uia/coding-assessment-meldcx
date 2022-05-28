@@ -24,11 +24,6 @@ server.on("listening", onListening)
 
 // catch ctrl-c event and proceed to shutdown
 process.on("SIGINT", onShutdown)
-process.on("message", msg => {
-	if (msg === "shutdown") {
-		setTimeout(onShutdown, 1500)
-	}
-})
 
 /* Event listener for HTTP server "listening" event. */
 function onListening() {
@@ -38,18 +33,6 @@ function onListening() {
 
 /* Event listener for HTTP server "shutdown" event */
 function onShutdown() {
-	const callback = function (err) {
-		if (err) {
-			process.exit(1)
-		}
-
-		console.info("Server closed")
-		process.exit(0)
-	}
-
-	server.on("close", (error) => {
-		if (error) return callback(error)
-
-		callback()
-	})
+	console.info("Server closed")
+	process.exit(0)
 }
