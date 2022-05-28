@@ -14,7 +14,8 @@
   "nodemonConfig": {
     "ignore": [
       "db/*",
-      "tests/unit/*",
+      "tests/*",
+      "unit/*",
       "config.test.js"
     ]
   },
