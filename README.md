@@ -1,6 +1,6 @@
 # coding-assessment-meldcx
 
-coding challenge for MeldCX
+Coding challenge for MeldCX
 
 ## Available Scripts
 
